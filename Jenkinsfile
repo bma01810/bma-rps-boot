@@ -12,8 +12,8 @@ pipeline {
   post {
     always {
       recordIssues(
-        enabledForFailure: true, aggregatingResults:true,
-        tools: [java(), checkStyle()]
+        enabledForFailure: true, 
+        tools: [java(), checkStyle(), findBugs(), pmdParser()]
       )
     }
   }
