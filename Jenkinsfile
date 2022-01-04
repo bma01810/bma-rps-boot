@@ -14,4 +14,12 @@ pipeline {
       }
     }
   }
+  post {
+    always {
+      recordIssues{
+        enabledForFailure: true, aggregatingResults:true,
+        tools: [java(), checkStyle(pattern: '**/build/**main.xml', reportEncoding: 'UTF-8')]
+      }
+    }
+  }
 }
